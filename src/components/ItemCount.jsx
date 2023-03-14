@@ -33,7 +33,6 @@ return (
             </ButtonToolbar>
 
     </>
-    // llamarlas funciones
 )
 }
 
