@@ -1,0 +1,43 @@
+
+[
+    {
+    "id": "01",
+    "name" : "boardgame1",
+    "description": "description1",
+    "stock": 5,
+    "price":1200,
+    "pictureUrl":"blah"
+    },
+    {
+    "id": "02",
+    "title" : "boardgame2",
+    "description": "description2",
+    "stock": 5,
+    "price":1200,
+    "pictureUrl":"blah"
+    },
+    {
+    "id": "03",
+    "title" : "boardgame3",
+    "description": "description3",
+    "stock": 5,
+    "price":1200,
+    "pictureUrl":"blah"
+    },
+    {
+    "id": "04",
+    "title" : "boardgame4",
+    "description": "description4",
+    "stock": 5,
+    "price":1200,
+    "pictureUrl":"blah"
+    },
+    {
+    "id": "05",
+    "title" : "boardgame5",
+    "description": "description5",
+    "stock": 5,
+    "price":1200,
+    "pictureUrl":"blah"
+    }
+]

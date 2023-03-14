@@ -1,11 +1,17 @@
 import React from 'react'
 import ItemCount from './ItemCount'
+import ItemList from './ItemList'
+import Data from './data.json'
 
 const ItemListContainer = ({greeting}) => {
   return (
     <>
-    <h1>{greeting}</h1>
+    
     <ItemCount/>
+    <ItemList
+
+    // prop con data de json
+    />
     </>
   )
 }
