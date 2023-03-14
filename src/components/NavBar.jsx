@@ -1,4 +1,3 @@
-import React from 'react'
 import CartWidget from './CartWidget';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -8,7 +7,8 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 const NavBar = () => {
   return (
     <div>
-      <Navbar bg="dark" variant="dark">
+      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" sticky='top'>
+      <Container fluid>
         <Navbar.Brand href="#home">
           <img
             alt=""
@@ -18,6 +18,8 @@ const NavBar = () => {
             className="d-inline-block align-top"
           />{' '}Dice Roll Games
         </Navbar.Brand>
+      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="me-auto">
           <Nav.Link href="#catalogo">Catalogo</Nav.Link>
           <Nav.Link href="#oferta">Ofertas</Nav.Link>
@@ -32,6 +34,8 @@ const NavBar = () => {
         <Nav>
           <Nav.Link href="#cart"><CartWidget /></Nav.Link>
         </Nav>
+        </Navbar.Collapse>
+        </Container>
       </Navbar>
     </div>
   )
