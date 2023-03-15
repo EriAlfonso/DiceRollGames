@@ -1,11 +1,13 @@
 import Item from './Item';
 import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
 
 
 const ItemList = ({data}) => {
   return (
     <>
-    <Container>
+    <Container fluid >
+    <Row >
     {data.map((game) => (
     <Item
     key={game.id}
@@ -18,6 +20,7 @@ const ItemList = ({data}) => {
     image={game.pictureUrl}
     />
     ))}
+    </Row>
     </Container>
     </>
   );

@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 
 const ItemCount = () => {
-// funciones
+// funciones de suma y resta
 const [counter, setCounter] = useState (0);
 const sumar = () => {
     setCounter (counter + 1)

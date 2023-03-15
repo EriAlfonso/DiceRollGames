@@ -8,9 +8,9 @@ const ItemDetail = () => {
       <Card.Body>
         <Card.Title>{title}</Card.Title>
         <Card.Text>
-          {description}
-          {price}
-          {stock}
+        <p>descripcion:{description}</p> 
+          <p>precio:{price}</p>
+          <p>stock:{stock}</p>
         </Card.Text>
         <ItemCount/>
       </Card.Body>

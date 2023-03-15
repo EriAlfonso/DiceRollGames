@@ -1,5 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import ListGroup from 'react-bootstrap/ListGroup';
+import { Link } from 'react-router-dom';
 
 
 const Item = ({id , title, description, stock, price, category, image}) => {
@@ -11,11 +13,14 @@ const Item = ({id , title, description, stock, price, category, image}) => {
       <Card.Body>
         <Card.Title>{title}</Card.Title>
         <Card.Text>
-          {description}
-          {price}
-          {stock}
+        {description}
         </Card.Text>
-        <Button variant="primary">Detalles</Button>
+        <ListGroup className="list-group-flush">
+        <ListGroup.Item>precio:{price}</ListGroup.Item>
+        <ListGroup.Item>stock:{stock}</ListGroup.Item>
+        <ListGroup.Item>cetegoria:{category}</ListGroup.Item>
+      </ListGroup>
+        <Button variant="outline-success"> Detalles</Button>
       </Card.Body>
     </Card>
     </>
