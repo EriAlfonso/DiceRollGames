@@ -1,17 +1,21 @@
-import ItemCount from './ItemCount'
+import ItemCount from './ItemCount';
 
-const ItemDetail = () => {
+
+const ItemDetail = (detail) => {
   return (
     <>
-        <Card style={{ width: '18rem' }} key={id}>
-      <Card.Img variant="top" src= {image} />
+    <Card style={{ width: '18rem' }} key={detail.id}>
+      <Card.Img variant="top" src= {detail.image} />
       <Card.Body>
-        <Card.Title>{title}</Card.Title>
+        <Card.Title>{detail.title}</Card.Title>
         <Card.Text>
-        <p>descripcion:{description}</p> 
-          <p>precio:{price}</p>
-          <p>stock:{stock}</p>
+        {detail.description}
         </Card.Text>
+        <ListGroup className="list-group-flush">
+        <ListGroup.Item>precio:{detail.price}</ListGroup.Item>
+        <ListGroup.Item>stock:{detail.stock}</ListGroup.Item>
+        <ListGroup.Item>cetegoria:{detail.category}</ListGroup.Item>
+      </ListGroup>
         <ItemCount/>
       </Card.Body>
     </Card>
