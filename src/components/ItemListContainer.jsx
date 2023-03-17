@@ -1,5 +1,7 @@
 import ItemList from './ItemList';
 import Data from './data.json';
+import { useParams } from 'react-router-dom';
+
 
 const ItemListContainer = () => {
 
@@ -17,21 +19,23 @@ const ItemListContainer = () => {
   async function fetchData (){
     try{
       const dataFetched= await getData();
-      console.log(dataFetched)
     }catch(err){
       console.log(err);
     }
   }
 
   fetchData();
+  // category y filtro
+const {category} =useParams();
+console.log(category)
+const datafilter = Data.filter ((catedata) => catedata.category ===category);
 
   return (
     <>
+    {category?<ItemList data = {datafilter} />:
     <ItemList
     data= {Data}
-
-    // prop con data de json
-    />
+    />}
     </>
   )
 }

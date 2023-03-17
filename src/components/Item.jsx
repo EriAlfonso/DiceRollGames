@@ -20,7 +20,9 @@ const Item = ({id , title, description, stock, price, category, image}) => {
         <ListGroup.Item>stock:{stock}</ListGroup.Item>
         <ListGroup.Item>cetegoria:{category}</ListGroup.Item>
       </ListGroup>
+      <Link to={`/itemdetail/${id}`}>
         <Button variant="outline-success"> Detalles</Button>
+      </Link>
       </Card.Body>
     </Card>
     </>
