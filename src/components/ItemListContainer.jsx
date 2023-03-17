@@ -1,6 +1,7 @@
 import ItemList from './ItemList';
 import Data from './data.json';
 import { useParams } from 'react-router-dom';
+import { useEffect } from 'react';
 
 
 const ItemListContainer = () => {
@@ -26,9 +27,13 @@ const ItemListContainer = () => {
 
   fetchData();
 
+
   // category y filtro
 const {category} =useParams();
 const datafilter = Data.filter ((catedata) => catedata.category ===category);
+
+useEffect(()=>{
+    },[datafilter])
 
   return (
     <>

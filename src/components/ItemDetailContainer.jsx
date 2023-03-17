@@ -1,6 +1,5 @@
 import Data from './data.json';
-import ItemDetail from './ItemDetail'
-import { useParams } from 'react-router-dom';
+import ItemDetail from './ItemDetail';
 
 const ItemDetailContainer = () => {
   const getData = () =>{
@@ -16,7 +15,7 @@ const ItemDetailContainer = () => {
 
   async function fetchData (){
     try{
-      const dataFetched= await getData();
+      const dataFetched = await getData();
     }catch(err){
       console.log(err);
     }

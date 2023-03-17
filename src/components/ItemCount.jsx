@@ -16,10 +16,10 @@ const restar = () =>{
 return (
     <>
           <ButtonToolbar
-        className="justify-content-between"
+        className="justify-content-between "
         aria-label="Toolbar with Button groups"
       >
-    <ButtonGroup aria-label="Basic example">
+    <ButtonGroup style={{ width: '10rem', margin:'2rem' }} aria-label="Basic example" className="justify-content-md-center" >
       <Button variant="outline-danger" onClick={restar}> - </Button>
       <Button variant="outline-dark" > {counter} </Button>
       <Button variant="outline-success" onClick={sumar}> + </Button>
@@ -29,7 +29,7 @@ return (
         className="justify-content-between"
         aria-label="Toolbar with Button groups"
       >
-        <Button variant="outline-primary" > Agregar al carrito </Button>
+        <Button style={{ width:"10rem" ,marginLeft:'2rem' }} variant="outline-primary" className="justify-content-md-center" > Agregar al carrito </Button>
             </ButtonToolbar>
 
     </>
