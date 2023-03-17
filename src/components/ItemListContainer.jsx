@@ -25,9 +25,9 @@ const ItemListContainer = () => {
   }
 
   fetchData();
+
   // category y filtro
 const {category} =useParams();
-console.log(category)
 const datafilter = Data.filter ((catedata) => catedata.category ===category);
 
   return (

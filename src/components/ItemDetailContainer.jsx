@@ -23,7 +23,6 @@ const ItemDetailContainer = () => {
   }
 
   fetchData();
-  const{id}= useParams();
   return (
     <>
     <ItemDetail
