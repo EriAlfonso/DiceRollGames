@@ -9,7 +9,7 @@ const Item = ({id , title, description, price, category, image}) => {
   return (
     <>
     {/* tarjeta con props */}
-    <Card className="text-center" style={{ width: '18rem', margin:'3rem', paddingTop:'1rem' }} key={id}>
+    <Card border="success" className="text-center" style={{ width: '18rem', margin:'3rem', paddingTop:'1rem' }} key={id}>
       <Card.Img variant="top" src= {image} />
       <Card.Body>
         <Card.Title >{title}</Card.Title>
