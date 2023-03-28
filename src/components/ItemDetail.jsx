@@ -5,30 +5,29 @@ import Row from 'react-bootstrap/Row';
 
 
 
-const ItemDetail = ({detail}) => {
+const ItemDetail = ({data}) => {
 
   return (
     <>
     
     <Row className="justify-content-md-center" >
-    {idFilter.map((idData)=>
-    <Card border="warning" style={{ width: '25rem', margin:'3rem',paddingTop:'1rem' }} key={idData.id} >
-      <Card.Img variant="top" src= {idData.pictureUrl} />
+    <Card border="warning" style={{ width: '25rem', margin:'3rem',paddingTop:'1rem' }} key={data.id} >
+      <Card.Img variant="top" src= {data.image} />
       <Card.Body>
-        <Card.Title> <h3>{idData.title}</h3> </Card.Title>
+        <Card.Title> <h3>{data.title}</h3> </Card.Title>
+        <h4>Descripcion:</h4>
         <Card.Text>
-        <h5>Descripcion:</h5>
-        {idData.description}
+        {data.description}
         </Card.Text>
         <ListGroup className="list-group-flush">
-        <ListGroup.Item>Categoria: {idData.category}</ListGroup.Item>
-        <ListGroup.Item>Stock: {idData.stock}</ListGroup.Item>
-        <ListGroup.Item>Precio: {idData.price}</ListGroup.Item>
+        <ListGroup.Item>Categoria: {data.category}</ListGroup.Item>
+        <ListGroup.Item>Stock: {data.stock}</ListGroup.Item>
+        <ListGroup.Item>Precio: {data.price}</ListGroup.Item>
         </ListGroup >
         <ItemCount />
       </Card.Body>
     </Card>
-    )}
+
     </Row>
     </>
   )

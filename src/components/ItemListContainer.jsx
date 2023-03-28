@@ -14,7 +14,7 @@ const ItemListContainer = () => {
 
     const itemsCollection = collection(db , "games")
     getDocs(itemsCollection).then ((snapshot)=> {
-    const docs = snapshot.docs.map((doc)=>doc.data())
+    const docs = snapshot.docs.map((doc)=>({ id: doc.id,... doc.data()}))
     setGames(docs);
     });
 
