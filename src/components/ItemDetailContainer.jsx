@@ -1,31 +1,22 @@
-import Data from './data.json';
 import ItemDetail from './ItemDetail';
+import { useParams } from 'react-router-dom';
+import { useState ,useEffect } from 'react';
 
 const ItemDetailContainer = () => {
-  const getData = () =>{
-    return new Promise (( resolve , reject) => {
-      if(Data.length === 0){
-        reject (new Error ('No Data Present'));
-      }
-      setTimeout(()=> {
-        resolve(Data);
-        }, 2000);
-    });
-  };
 
-  async function fetchData (){
-    try{
-      const dataFetched = await getData();
-    }catch(err){
-      console.log(err);
-    }
-  }
 
-  fetchData();
+
+
+  // filtro por id
+  const {id}=useParams();
+  const idFilter = detail.filter ((idData) => idData.id ===id);
+  
+useEffect(()=>{
+    },[idFilter])
   return (
     <>
     <ItemDetail
-    detail={Data}/>
+    />
     </>
   )
 }

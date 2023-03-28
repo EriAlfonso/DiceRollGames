@@ -2,17 +2,11 @@ import ItemCount from './ItemCount';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Row from 'react-bootstrap/Row';
-import { useParams } from 'react-router-dom';
-import { useEffect } from 'react';
+
 
 
 const ItemDetail = ({detail}) => {
-  // filtro por id
-  const {id}=useParams();
-  const idFilter = detail.filter ((idData) => idData.id ===id);
-  
-useEffect(()=>{
-    },[idFilter])
+
   return (
     <>
     

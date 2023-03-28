@@ -1,36 +1,29 @@
 import ItemList from './ItemList';
-import Data from './data.json';
 import { useParams } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { collection, getDocs, getFirestore} from 'firebase/firestore';
+
 
 
 const ItemListContainer = () => {
 
-  const getData = () =>{
-    return new Promise (( resolve , reject) => {
-      if(Data.length === 0){
-        reject (new Error ('No Data Present'));
-      }
-      setTimeout(()=> {
-        resolve(Data);
-        }, 2000);
+  const [games,setGames]=useState([]);
+
+  useEffect(()=>{
+    const db = getFirestore();
+
+    const itemsCollection = collection(db , "games")
+    getDocs(itemsCollection).then ((snapshot)=> {
+    const docs = snapshot.docs.map((doc)=>doc.data())
+    setGames(docs);
     });
-  };
 
-  async function fetchData (){
-    try{
-      const dataFetched= await getData();
-    }catch(err){
-      console.log(err);
-    }
-  }
 
-  fetchData();
-
+  },[])
 
   // category y filtro
 const {category} =useParams();
-const datafilter = Data.filter ((catedata) => catedata.category ===category);
+const datafilter = games.filter ((catedata) => catedata.category ===category);
 
 useEffect(()=>{
     },[datafilter])
@@ -39,7 +32,7 @@ useEffect(()=>{
     <>
     {category?<ItemList data = {datafilter} />:
     <ItemList
-    data= {Data}
+    data= {games}
     />}
     </>
   )
