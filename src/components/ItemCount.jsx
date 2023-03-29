@@ -1,8 +1,8 @@
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
-import { useState } from 'react';
-
+import { useState,useContext } from 'react';
+import { CartDataContext } from '../context/CartContext';
 
 const ItemCount = () => {
 // funciones de suma y resta

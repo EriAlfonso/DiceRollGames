@@ -17,8 +17,6 @@ const ItemListContainer = () => {
     const docs = snapshot.docs.map((doc)=>({ id: doc.id,... doc.data()}))
     setGames(docs);
     });
-
-
   },[])
 
   // category y filtro

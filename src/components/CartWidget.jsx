@@ -1,4 +1,7 @@
 import Badge from 'react-bootstrap/Badge';
+import { useContext } from 'react';
+import { CartDataContext } from '../context/CartContext';
+
 const CartWidget = () => {
     return (
         <div>
