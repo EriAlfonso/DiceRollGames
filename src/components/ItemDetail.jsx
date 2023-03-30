@@ -10,7 +10,7 @@ const ItemDetail = ({data}) => {
   return (
     <>
     
-    <Row className="justify-content-md-center" >
+    <Row className="justify-content-center" >
     <Card border="warning" style={{ width: '25rem', margin:'3rem',paddingTop:'1rem' }} key={data.id} >
       <Card.Img variant="top" src= {data.image} />
       <Card.Body>
