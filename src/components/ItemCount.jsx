@@ -1,6 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
+import { Link } from "react-router-dom";
 import { useState,useContext } from 'react';
 import { CartDataContext } from '../context/CartContext';
 
@@ -29,7 +30,9 @@ return (
         className="justify-content-between"
         aria-label="Toolbar with Button groups"
       >
-        <Button style={{ width:"10rem" ,marginLeft:'2rem' }} variant="outline-primary" className="justify-content-md-center" > Agregar al carrito </Button>
+        <Button style={{ width:"10rem" ,marginLeft:'2rem' }} variant="outline-primary" className="justify-content-md-center"  as={Link} to={`/Cart`}>
+        Agregar al carrito 
+        </Button>
             </ButtonToolbar>
 
     </>
