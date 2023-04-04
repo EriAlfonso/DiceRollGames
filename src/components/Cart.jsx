@@ -1,7 +1,11 @@
 import Loader from './Loader';
+import { useContext } from 'react';
 import Table from 'react-bootstrap/Table';
+import {CartDataContext} from '../context/CartContext';
 
 const Cart = () => {
+  const {cart} = useContext(CartDataContext);
+
   // const [loader,setloader]= useState(true)
 
   // setloader (false);
@@ -11,38 +15,29 @@ const Cart = () => {
   // }
   return (
     <div>
-  <Table responsive>
+    <Table responsive>
       <thead>
         <tr>
-          <th>#</th>
-          {Array.from({ length: 12 }).map((_, index) => (
-            <th key={index}>Table heading</th>
-          ))}
+          <th></th>
+          <th>Item</th>
+          <th>Price</th>
+          <th>Quantity</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          {Array.from({ length: 12 }).map((_, index) => (
-            <td key={index}>Table cell {index}</td>
-          ))}
-        </tr>
-        <tr>
-          <td>2</td>
-          {Array.from({ length: 12 }).map((_, index) => (
-            <td key={index}>Table cell {index}</td>
-          ))}
-        </tr>
-        <tr>
-          <td>3</td>
-          {Array.from({ length: 12 }).map((_, index) => (
-            <td key={index}>Table cell {index}</td>
-          ))}
-        </tr>
+        {cart.map((game) => (
+          <tr key={game.id}>
+            <td>{}</td>
+            <td>{game.title}</td>
+            <td>${game.price.toFixed(2)}</td>
+            <td>{game.cartTotal}</td>
+          </tr>
+        ))}
       </tbody>
     </Table>
-    </div>
-  )
-}
+  </div>
+);
+};
+
 
 export default Cart

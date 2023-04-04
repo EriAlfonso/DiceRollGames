@@ -6,6 +6,7 @@ import Row from 'react-bootstrap/Row';
 
 
 const ItemDetail = ({data}) => {
+  console.log(data)
 
   return (
     <>
@@ -24,7 +25,12 @@ const ItemDetail = ({data}) => {
         <ListGroup.Item>Stock: {data.stock}</ListGroup.Item>
         <ListGroup.Item>Precio: {data.price}</ListGroup.Item>
         </ListGroup >
-        <ItemCount />
+        <ItemCount
+        id={data.id}
+        title={data.title}
+        price={data.price}
+        stock={data.stock}
+        />
       </Card.Body>
     </Card>
 
