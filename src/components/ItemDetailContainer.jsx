@@ -5,8 +5,8 @@ import { useState ,useEffect } from 'react';
 import { doc, getDoc, getFirestore} from 'firebase/firestore';
 
 const ItemDetailContainer = () => {
-    // filtro por id
-    const {id}=useParams();
+  // filtro por id
+  const {id}=useParams();
   const [games,setGames]=useState([]);
   const [loader,setloader]= useState(true)
   useEffect(()=>{
@@ -19,8 +19,8 @@ const ItemDetailContainer = () => {
       setloader (false);
     }
     });
-  },[])
-  
+  },[id])
+
   if (loader){
     return <Loader/>
   }
@@ -28,6 +28,7 @@ const ItemDetailContainer = () => {
         <>
     <ItemDetail
     data= {games}
+    id={id}
     />
     </>
   )
