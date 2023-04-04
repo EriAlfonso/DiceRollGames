@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 import { CartDataContext } from '../context/CartContext';
 
 const Cart = () => {
-  const { cart, removeFromCart } = useContext(CartDataContext);
+  const { cart, removeFromCart, cartPriceTotal } = useContext(CartDataContext);
 
   // const [loader,setloader]= useState(true)
 
@@ -16,22 +16,24 @@ const Cart = () => {
   // }
   return (
     <div>
-      <Table responsive style={{ boxSizing: 'inherit', textAlign: 'left' }}>
+      {cart.length !== 0 ? (
+      <div>
+      <Table responsive hover style={{ boxSizing: 'inherit', textAlign: 'left' }}>
         <thead>
           <tr>
             <th></th>
             <th></th>
-            <th>Item</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Total</th>
+            <th>Producto</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Sub-Total</th>
           </tr>
         </thead>
         <tbody style={{ verticalAlign: 'middle' }}>
           {cart.map((game) => (
             <tr key={game.id}>
               <td>
-                <Button variant="outline-danger" onClick={() => removeFromCart(game.id)} >
+                <Button variant="outline-danger" onClick={() => removeFromCart (game.id)} >
                 <span className="material-symbols-outlined" style={{ display: "flex", justifyContent: "center", alignItems: "center" }} >
                   delete
                 </span>
@@ -46,7 +48,28 @@ const Cart = () => {
           ))}
         </tbody>
       </Table>
+      
+      <Table responsive hover >
+        <thead >
+          <tr >
+            <th colSpan={4}>Total De Compras</th>
+          </tr>
+        </thead>
+        <tbody >
+          <tr >
+          <th>Total</th>
+          <td>${cartPriceTotal()}</td>
+          <td></td>
+          <td></td>
+          </tr>
+        </tbody>
+      </Table>
+      </div>
+            ):(
+              <h3 style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>El Carrito Esta Vacio</h3>
+            )}
     </div>
+
   );
 };
 

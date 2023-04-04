@@ -23,8 +23,8 @@ useEffect(() => {
     setCart(newCart);
   };
 
-  const cartTotal= ()=>{
-    setCart({...cart,game})
+  const cartPriceTotal= ()=>{
+    return cart.reduce((total, game) => total + (game.price * game.buyTotal), 0);
   }
 
   const clearCart= ()=>{
@@ -33,7 +33,7 @@ useEffect(() => {
   
 
   return (
-    <CartDataContext.Provider value={{cart, setCart, removeFromCart, addToCart, clearCart, cartTotal}}>
+    <CartDataContext.Provider value={{cart, setCart, removeFromCart, addToCart, clearCart, cartPriceTotal}}>
       {children}
     </CartDataContext.Provider>
   )
