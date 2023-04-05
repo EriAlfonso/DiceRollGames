@@ -1,3 +1,4 @@
+import React from 'react';
 import ItemList from './ItemList';
 import Loader from './Loader';
 import { useParams } from 'react-router-dom';
@@ -41,4 +42,4 @@ const ItemListContainer = () => {
   )
 }
 
-export default ItemListContainer
+export default React.memo(ItemListContainer);

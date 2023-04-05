@@ -1,19 +1,12 @@
 import Loader from './Loader';
 import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import { CartDataContext } from '../context/CartContext';
 
 const Cart = () => {
   const { cart, removeFromCart, cartPriceTotal } = useContext(CartDataContext);
-
-  // const [loader,setloader]= useState(true)
-
-  // setloader (false);
-
-  // if (loader){
-  //   return <Loader/>
-  // }
   return (
     <div>
       {cart.length !== 0 ? (
@@ -66,7 +59,10 @@ const Cart = () => {
       </Table>
       </div>
             ):(
-              <h3 style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>El Carrito Esta Vacio</h3>
+              <div style={{ display: "flex", flexDirection: "column", alignItems: "center", marginTop:'2rem'}}>
+                <h3>El Carrito Esta Vacio</h3>
+                <Button variant="outline-primary" size="lg" as={Link} to="/">Volver al Catalogo</Button>
+              </div>
             )}
     </div>
 

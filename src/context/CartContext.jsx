@@ -14,9 +14,18 @@ useEffect(() => {
   localStorage.setItem("cart", JSON.stringify(cart));
 }, [cart]);
 
-  const addToCart= (game)=>{
+const addToCart = (game) => {
+  // function para que los items se sumen y no se repitan
+  const gameInCart = cart.find((item) => item.id === game.id);
+  if (gameInCart) {
+    const updatedCart = cart.map((item) =>
+      item.id === game.id ? { ...item, buyTotal: item.buyTotal + game.buyTotal} : item
+    );
+    setCart(updatedCart);
+  } else {
     setCart([...cart,game])
   }
+};
 
   const removeFromCart = (gameId) => {
     const newCart = cart.filter((game) => game.id !== gameId);
