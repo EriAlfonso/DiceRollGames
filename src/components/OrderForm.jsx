@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import {collection,addDoc, getFirestore} from "firebase/firestore"
+import {collection,addDoc, getFirestore, serverTimestamp} from "firebase/firestore"
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { CartDataContext } from '../context/CartContext';
 import { useContext } from 'react';
 
 const OrderForm = () => {
-  const {cart, setCart} = useContext(CartDataContext);
+  const {cart,cartPriceTotal} = useContext(CartDataContext);
   const [orderId, setOrderId] = useState(null);
   const [name , SetName] = useState ("")
   const [email , SetEmail] = useState ("")
@@ -20,6 +20,8 @@ const OrderForm = () => {
     name,
     email,
     cart:({cart}),
+    total:cartPriceTotal(),
+    date:serverTimestamp(),
   };
 const orderCollection=collection(db, "order");
 
