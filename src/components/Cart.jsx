@@ -1,17 +1,20 @@
 import Loader from './Loader';
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import {Link } from 'react-router-dom';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import { CartDataContext } from '../context/CartContext';
+import OrderForm from './OrderForm';
 
 const Cart = () => {
   const { cart, removeFromCart, cartPriceTotal } = useContext(CartDataContext);
   return (
     <div>
+
       {cart.length !== 0 ? (
       <div>
-      <Table responsive hover style={{ boxSizing: 'inherit', textAlign: 'left' }}>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+      <Table responsive hover style={{ boxSizing: 'inherit', textAlign: 'left', marginTop:'3rem' }}>
         <thead>
           <tr>
             <th></th>
@@ -41,8 +44,10 @@ const Cart = () => {
           ))}
         </tbody>
       </Table>
-      
-      <Table responsive hover >
+      </div>
+
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', }}>
+      <Table responsive hover style={{width:'36rem'}}>
         <thead >
           <tr >
             <th colSpan={4}>Total De Compras</th>
@@ -57,6 +62,10 @@ const Cart = () => {
           </tr>
         </tbody>
       </Table>
+      </div>
+
+      <OrderForm/>
+
       </div>
             ):(
               <div style={{ display: "flex", flexDirection: "column", alignItems: "center", marginTop:'2rem'}}>
