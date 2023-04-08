@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 
 
+
 const ItemList = ({data}) => {
   return (
     <>
@@ -18,6 +19,7 @@ const ItemList = ({data}) => {
     stock={game.stock}
     category={game.category}
     image={game.image}
+    oferta={game.oferta}
     />
     ))}
     </Row>
