@@ -4,7 +4,7 @@ export const CartDataContext = createContext();
 
 
 const CartContext = ({children}) => {
-// local storage saved cart
+// local storage para guardar cart
 const [cart, setCart] = useState(() => {
   const savedCart = JSON.parse(localStorage.getItem("cart"));
   return savedCart || [];

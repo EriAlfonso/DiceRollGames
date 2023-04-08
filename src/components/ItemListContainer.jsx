@@ -3,43 +3,40 @@ import ItemList from './ItemList';
 import Loader from './Loader';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { collection, getDocs, getFirestore} from 'firebase/firestore';
-
-
+import { collection, getDocs, getFirestore } from 'firebase/firestore';
 
 const ItemListContainer = () => {
-  const [loader,setloader]= useState(true)
-  const [games,setGames]=useState([]);
+  const [loader, setLoader] = useState(true);
+  const [games, setGames] = useState([]);
 
-  useEffect(()=>{
+  useEffect(() => {
     const db = getFirestore();
-    
-    const itemsCollection = collection(db , "games")
-    getDocs(itemsCollection).then ((snapshot)=> {
-    const docs = snapshot.docs.map((doc)=>({ id: doc.id,... doc.data()}))
-    setGames(docs);
-    setloader (false);
-    });
-  },[])
+    const itemsCollection = collection(db, 'games');
 
-  // category y filtro
-  const {category} =useParams();
-  const datafilter = games.filter ((catedata) => catedata.category ===category);
-  
-  useEffect(()=>{
-  },[datafilter])
-  
-  if (loader){
-  return <Loader/>
-}
-  return (
-    <>
-    {category?<ItemList data = {datafilter} />:
-    <ItemList
-    data= {games}
-    />}
-    </>
-  )
-}
+    getDocs(itemsCollection).then((snapshot) => {
+      const docs = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+      setGames(docs);
+      setLoader(false);
+    });
+  }, []);
+
+  const { category, oferta } = useParams();
+
+  const filteredGames = games.filter((game) => {
+    if (category && game.category !== category) {
+      return false;
+    }
+    if (oferta && !game.oferta) {
+      return false;
+    }
+    return true;
+  });
+
+  if (loader) {
+    return <Loader />;
+  }
+
+  return <ItemList data={filteredGames} />;
+};
 
 export default React.memo(ItemListContainer);

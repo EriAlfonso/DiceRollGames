@@ -10,7 +10,6 @@ const Cart = () => {
   const { cart, removeFromCart, cartPriceTotal } = useContext(CartDataContext);
   return (
     <div>
-
       {cart.length !== 0 ? (
       <div>
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
