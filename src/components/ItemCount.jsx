@@ -9,12 +9,21 @@ const ItemCount = ({id,title,price,image,stock}) => {
 // funciones de suma y resta
 const {addToCart, cart, setCart} = useContext (CartDataContext)
 const [counter, setCounter] = useState (0);
+const gameInCart = cart.filter(game => game.id === id);
+const gameTotalInCart = gameInCart.length > 0 ? gameInCart[0].buyTotal : 0;
+
 const sumar = () => {
-    setCounter (counter + 1)
+  if (counter + gameTotalInCart < stock) {
+    setCounter (counter + 1);
+  }
 }
-const restar = () =>{
-    setCounter (counter - 1)
-}
+
+const restar = () => {
+  if (counter === 0) {
+    return;
+  }
+  setCounter(counter - 1);
+};
 
 const addGameToCart = () => {
   const game = {

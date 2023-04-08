@@ -2,6 +2,7 @@ import ItemCount from './ItemCount';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Row from 'react-bootstrap/Row';
+import Badge from 'react-bootstrap/Badge';
 
 
 
@@ -21,13 +22,20 @@ const ItemDetail = ({data,id}) => {
         <ListGroup className="list-group-flush">
         <ListGroup.Item>Categoria: {data.category}</ListGroup.Item>
         <ListGroup.Item>Stock: {data.stock}</ListGroup.Item>
-        <ListGroup.Item>Precio: {data.price}</ListGroup.Item>
+        <ListGroup.Item>Precio:  {data.oferta ? (
+          <>
+            <strong> ${data.price / 2}</strong>
+            <Badge bg="danger">Oferta</Badge>
+            <del>${data.price}</del>
+          </>
+        ) : data.price}
+        </ListGroup.Item>
         </ListGroup >
         <ItemCount
         id={id}
         image={data.image}
         title={data.title}
-        price={data.price}
+        price={data.oferta ? data.price / 2 : data.price}
         stock={data.stock}
         />
       </Card.Body>

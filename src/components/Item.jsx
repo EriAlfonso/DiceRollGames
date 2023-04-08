@@ -19,7 +19,7 @@ const Item = ({id , title, price, category, image, oferta}) => {
           <ListGroup.Item>
             {oferta ? (
               <>
-                Precio: <del>${price}</del> <Badge variant="danger">Oferta</Badge> <strong>${descuento}</strong>
+                Precio: <del>${price}</del> <Badge bg="danger">Oferta</Badge> <strong>${descuento}</strong>
               </>
             ) : (
               <>
