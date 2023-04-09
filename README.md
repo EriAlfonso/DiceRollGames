@@ -31,7 +31,7 @@ Se  agregaron  datos  de  un  JSON  para  mostrar  cards  con  los  productos.  
  
 
 ### Demo
-![Alt](https://s10.gifyu.com/images/finalGif.gif)
+![Alt](https://s2.gifyu.com/images/ezgif.com-video-to-gif1f93ddedf9a0e6c9.gif)
 
 ### Librerias
 Estas son la librerias usadas para este proyecto:
